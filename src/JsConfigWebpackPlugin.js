@@ -22,6 +22,8 @@ module.exports = class JsConfigWebpackPlugin {
     const isDev = mode === 'development';
     const defaultOpt = {
       suffix: ['js', 'jsx', 'mjs'],
+      filename: isDev ? '[name].js' : 'static/js/[contenthash:10].js',
+      chunkFilename: isDev ? '[name].js' : 'static/js/[contenthash:10].js',
       terser: {
         extractComments: false,
         terserOptions: {

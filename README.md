@@ -41,6 +41,25 @@ module.exports = {
 - `type array`
 - `default ['js', 'jsx', 'mjs']`
 
+**filename**
+
+- `type string function (pathData, assetInfo) => string`
+- [output.filename](https://webpack.js.org/configuration/output/#outputfilename)
+- default
+
+```js
+webpack.mode === 'development' ? '[name].js' : 'static/js/[contenthash:10].js'
+```
+
+**chunkFilename**
+
+- `type string function (pathData, assetInfo) => string`
+- [output.chunkFilename](https://webpack.js.org/configuration/output/#outputchunkfilename)
+- default
+
+```js
+webpack.mode === 'development' ? '[name].js' : 'static/js/[contenthash:10].js'
+```
 
 **terser**
 
