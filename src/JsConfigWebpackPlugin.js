@@ -11,9 +11,16 @@ module.exports = class JsConfigWebpackPlugin {
   apply(compiler) {
     const { constructor, getOptions } = this;
 
-    const cfg = config(getOptions(compiler));
+    const opt = getOptions(compiler);
+    const cfg = config(opt);
     // Merge config
-    compiler.hooks.afterEnvironment.tap(constructor.name, () => compiler.options.module.rules.push(...cfg.module.rules));
+    compiler.hooks.afterEnvironment.tap(constructor.name, () => {
+      // eslint-disable-next-line
+      compiler.options.output.filename = opt.filename;
+      // eslint-disable-next-line
+      compiler.options.output.chunkFilename = opt.chunkFilename;
+      compiler.options.module.rules.push(...cfg.module.rules);
+    });
     cfg.plugins.forEach((plugin) => plugin.apply(compiler));
   }
 
