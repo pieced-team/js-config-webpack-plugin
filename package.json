@@ -1,6 +1,6 @@
 {
   "name": "@pieced/js-config-webpack-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Automatically configuration webpack5 js loader",
   "author": "mingdev <mingdev@163.com>",
   "license": "MIT",
